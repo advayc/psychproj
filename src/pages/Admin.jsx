@@ -361,7 +361,14 @@ export default function Admin() {
               onClick={() => {
                 if (
                   confirm(
-                    "Reset all data? This will clear participants and pairings.",
+                    "⚠️ FULL RESET - This will:\n\n" +
+                    "• Stop the activity\n" +
+                    "• Delete ALL participants\n" +
+                    "• Delete ALL pairings\n" +
+                    "• Reset round to 0\n\n" +
+                    "Note: Participants may still have cached data in their browsers. " +
+                    "They should refresh or click 'Reset' on their page.\n\n" +
+                    "Are you sure?"
                   )
                 ) {
                   handleAction("reset");
@@ -371,7 +378,27 @@ export default function Admin() {
               className="w-full flex items-center justify-center space-x-3 bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-400 p-4 rounded-2xl font-bold transition-all active:scale-[0.98]"
             >
               <RotateCcw className="w-5 h-5" />
-              <span>Reset</span>
+              <span>Full Reset</span>
+            </button>
+
+            <button
+              onClick={() => {
+                if (
+                  confirm(
+                    "Clear all participants?\n\n" +
+                    "This will remove all current participants from the lobby. " +
+                    "The activity state and round number will remain.\n\n" +
+                    "Participants will need to re-join."
+                  )
+                ) {
+                  handleAction("clear-participants");
+                }
+              }}
+              disabled={isProcessing}
+              className="w-full flex items-center justify-center space-x-3 bg-orange-500/10 hover:bg-orange-500/20 border border-orange-500/20 text-orange-400 p-3 rounded-2xl font-medium text-sm transition-all active:scale-[0.98]"
+            >
+              <Users className="w-4 h-4" />
+              <span>Clear Participants</span>
             </button>
           </div>
 

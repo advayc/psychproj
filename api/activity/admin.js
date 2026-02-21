@@ -36,10 +36,20 @@ export default async function handler(req, res) {
     const { action } = req.body;
 
     if (action === "reset") {
+      // Clear activity state
       await sql`UPDATE activity_state SET is_active = false, current_round = 0, current_topic = NULL WHERE id = 1`;
+      // Clear all pairings
       await sql`DELETE FROM pairings`;
+      // Clear all participants
       await sql`DELETE FROM participants`;
-      return res.json({ success: true });
+      return res.json({ success: true, message: 'All data has been reset' });
+    }
+
+    if (action === "clear-participants") {
+      // Only clear participants without resetting activity state
+      await sql`DELETE FROM participants`;
+      await sql`DELETE FROM pairings WHERE round_number = (SELECT current_round FROM activity_state WHERE id = 1)`;
+      return res.json({ success: true, message: 'All participants have been cleared' });
     }
 
     if (action === "start" || action === "next") {

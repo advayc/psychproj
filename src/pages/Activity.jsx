@@ -11,10 +11,17 @@ export default function Activity() {
 
   useEffect(() => {
     const pId = localStorage.getItem("psych_participant_id");
-    if (pId) setParticipantId(pId);
-
     const savedName = localStorage.getItem("psych_participant_name");
-    if (savedName) setName(savedName);
+    
+    // Only restore participantId if we also have a valid name
+    if (pId && savedName && savedName.trim()) {
+      setParticipantId(pId);
+      setName(savedName);
+    } else {
+      // Clear invalid state
+      localStorage.removeItem("psych_participant_id");
+      localStorage.removeItem("psych_participant_name");
+    }
 
     let sId = localStorage.getItem("psych_session_id");
     if (!sId) {
@@ -46,7 +53,22 @@ export default function Activity() {
         : "/api/activity/state";
       const res = await fetch(url);
       if (!res.ok) throw new Error("Failed to fetch state");
-      return res.json();
+      const data = await res.json();
+      
+      // Check if the current user is in the participants list
+      if (participantId && data.participants) {
+        const userExists = data.participants.some(p => p.id == participantId);
+        if (!userExists) {
+          // User was removed from DB (e.g., admin reset), clear local state
+          localStorage.removeItem("psych_participant_id");
+          localStorage.removeItem("psych_participant_name");
+          setParticipantId(null);
+          setName("");
+          toast.info("Session has been reset. Please re-register.");
+        }
+      }
+      
+      return data;
     },
     refetchInterval: 3000,
     enabled: true,
@@ -54,19 +76,22 @@ export default function Activity() {
 
   const handleJoin = async (e) => {
     e.preventDefault();
-    if (!name.trim()) return;
+    if (!name.trim()) {
+      toast.error("Please enter your name");
+      return;
+    }
 
     try {
       const res = await fetch("/api/activity/join", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, sessionId }),
+        body: JSON.stringify({ name: name.trim(), sessionId }),
       });
       const result = await res.json();
       if (result.success) {
         setParticipantId(result.participantId);
         localStorage.setItem("psych_participant_id", result.participantId);
-        localStorage.setItem("psych_participant_name", name);
+        localStorage.setItem("psych_participant_name", name.trim());
         toast.success("Joined the lobby!");
       } else {
         toast.error(result.error || "Failed to join");
@@ -74,6 +99,14 @@ export default function Activity() {
     } catch (error) {
       toast.error("Network error");
     }
+  };
+
+  const handleResetRegistration = () => {
+    localStorage.removeItem("psych_participant_id");
+    localStorage.removeItem("psych_participant_name");
+    setParticipantId(null);
+    setName("");
+    toast.success("Registration reset. You can now re-register.");
   };
 
   if (!participantId) {
@@ -172,9 +205,17 @@ export default function Activity() {
             </div>
           </div>
           
-          <div className="bg-[#1A1A1D] rounded-2xl px-4 py-2 border border-zinc-700">
-            <p className="text-zinc-400 text-xs uppercase tracking-wider">You are:</p>
-            <p className="text-[#FF6B4A] font-semibold">{name}</p>
+          <div className="bg-[#1A1A1D] rounded-2xl px-4 py-2 border border-zinc-700 flex items-center justify-between">
+            <div>
+              <p className="text-zinc-400 text-xs uppercase tracking-wider">You are:</p>
+              <p className="text-[#FF6B4A] font-semibold">{name || "Unknown"}</p>
+            </div>
+            <button 
+              onClick={handleResetRegistration}
+              className="text-zinc-500 hover:text-zinc-300 text-xs font-medium transition-colors"
+            >
+              Reset
+            </button>
           </div>
         </div>
       </div>

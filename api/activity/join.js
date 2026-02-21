@@ -18,6 +18,12 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Name and Session ID are required' });
     }
 
+    const trimmedName = name.trim();
+    
+    if (!trimmedName) {
+      return res.status(400).json({ error: 'Name cannot be empty' });
+    }
+
     // Check if participant already exists in this session
     const existing = await sql`
       SELECT id FROM participants WHERE session_id = ${sessionId} LIMIT 1
@@ -25,7 +31,7 @@ export default async function handler(req, res) {
 
     if (existing.length > 0) {
       await sql`
-        UPDATE participants SET name = ${name}, last_seen = CURRENT_TIMESTAMP 
+        UPDATE participants SET name = ${trimmedName}, last_seen = CURRENT_TIMESTAMP 
         WHERE session_id = ${sessionId}
       `;
       return res.json({ success: true, participantId: existing[0].id });
@@ -33,7 +39,7 @@ export default async function handler(req, res) {
 
     const result = await sql`
       INSERT INTO participants (name, session_id, last_seen) 
-      VALUES (${name}, ${sessionId}, CURRENT_TIMESTAMP) 
+      VALUES (${trimmedName}, ${sessionId}, CURRENT_TIMESTAMP) 
       RETURNING id
     `;
 
