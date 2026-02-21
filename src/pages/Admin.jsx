@@ -12,8 +12,10 @@ import {
   Eye,
   EyeOff,
   ArrowRightLeft,
+  QrCode,
 } from "lucide-react";
 import { toast } from "sonner";
+import { QRCodeSVG } from "qrcode.react";
 
 export default function Admin() {
   const [isProcessing, setIsProcessing] = useState(false);
@@ -245,6 +247,32 @@ export default function Admin() {
       </div>
 
       <div className="max-w-md mx-auto px-6 py-6 space-y-6 pb-32">
+        {/* QR Code */}
+        <div className="bg-[#27272A] border border-zinc-800 rounded-3xl p-6 space-y-4">
+          <div className="flex items-center space-x-3">
+            <QrCode className="w-5 h-5 text-[#FF6B4A]" />
+            <h2 className="text-white text-xl font-bold">Join Activity</h2>
+          </div>
+          
+          <div className="bg-white p-6 rounded-2xl flex items-center justify-center">
+            <QRCodeSVG
+              value={`${window.location.origin}/activity`}
+              size={200}
+              level="H"
+              includeMargin={true}
+            />
+          </div>
+
+          <div className="bg-[#FF6B4A]/5 border border-[#FF6B4A]/10 p-4 rounded-2xl">
+            <p className="text-[#FF6B4A] text-sm text-center font-medium">
+              Students scan this QR code to join
+            </p>
+            <p className="text-zinc-400 text-xs text-center mt-1">
+              {window.location.origin}/activity
+            </p>
+          </div>
+        </div>
+
         {/* Status */}
         <div className="bg-[#27272A] border border-zinc-800 rounded-3xl p-6 space-y-6">
           <h2 className="text-white text-xl font-bold">Session Status</h2>
@@ -454,7 +482,7 @@ export default function Admin() {
             Instructions
           </div>
           <p className="text-zinc-400 text-sm leading-relaxed">
-            Students scan QR code to join. Press{" "}
+            Share the QR code above for students to join. Press{" "}
             <strong className="text-white">Start Activity</strong> to begin. Use{" "}
             <strong className="text-white">Switch Partners</strong> to rotate
             pairings.
