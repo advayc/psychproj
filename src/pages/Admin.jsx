@@ -13,6 +13,8 @@ import {
   EyeOff,
   ArrowRightLeft,
   QrCode,
+  Maximize2,
+  X,
 } from "lucide-react";
 import { toast } from "sonner";
 import { QRCodeSVG } from "qrcode.react";
@@ -24,6 +26,7 @@ export default function Admin() {
   const [showPassword, setShowPassword] = useState(false);
   const [pairings, setPairings] = useState([]);
   const [editingPairing, setEditingPairing] = useState(null);
+  const [showFullscreenQR, setShowFullscreenQR] = useState(false);
 
   // Check if already authenticated
   useEffect(() => {
@@ -61,6 +64,17 @@ export default function Admin() {
       setPairings(pairingsData.pairings);
     }
   }, [pairingsData]);
+
+  // Handle ESC key to close fullscreen QR
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" && showFullscreenQR) {
+        setShowFullscreenQR(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [showFullscreenQR]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -249,9 +263,18 @@ export default function Admin() {
       <div className="max-w-md mx-auto px-6 py-6 space-y-6 pb-32">
         {/* QR Code */}
         <div className="bg-[#27272A] border border-zinc-800 rounded-3xl p-6 space-y-4">
-          <div className="flex items-center space-x-3">
-            <QrCode className="w-5 h-5 text-[#FF6B4A]" />
-            <h2 className="text-white text-xl font-bold">Join Activity</h2>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <QrCode className="w-5 h-5 text-[#FF6B4A]" />
+              <h2 className="text-white text-xl font-bold">Join Activity</h2>
+            </div>
+            <button
+              onClick={() => setShowFullscreenQR(true)}
+              className="flex items-center space-x-2 bg-[#FF6B4A] hover:bg-[#FF5A39] text-white px-4 py-2 rounded-xl font-medium transition-all active:scale-95"
+            >
+              <Maximize2 className="w-4 h-4" />
+              <span className="text-sm">Fullscreen</span>
+            </button>
           </div>
           
           <div className="bg-white p-6 rounded-2xl flex items-center justify-center">
@@ -489,6 +512,42 @@ export default function Admin() {
           </p>
         </div>
       </div>
+
+      {/* Fullscreen QR Code Modal */}
+      {showFullscreenQR && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-6"
+          onClick={() => setShowFullscreenQR(false)}
+        >
+          <button
+            onClick={() => setShowFullscreenQR(false)}
+            className="absolute top-6 right-6 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors"
+          >
+            <X className="w-6 h-6 text-white" />
+          </button>
+
+          <div className="flex flex-col items-center space-y-8">
+            <div className="bg-white p-8 rounded-3xl shadow-2xl">
+              <QRCodeSVG
+                value={`${window.location.origin}/activity`}
+                size={400}
+                level="H"
+                includeMargin={true}
+              />
+            </div>
+
+            <div className="text-center space-y-3">
+              <h2 className="text-white text-3xl font-bold">Scan to Join</h2>
+              <p className="text-zinc-400 text-lg font-mono">
+                {window.location.origin}/activity
+              </p>
+              <p className="text-zinc-500 text-sm">
+                Click anywhere or press ESC to close
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

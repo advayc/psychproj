@@ -196,9 +196,16 @@ export default function Activity() {
                 {participants?.map((p) => (
                   <div
                     key={p.id}
-                    className="bg-[#18181B] border border-zinc-800 p-3 rounded-xl text-zinc-300 text-sm font-medium"
+                    className={`p-3 rounded-xl border text-sm font-medium ${
+                      p.id == participantId
+                        ? "bg-[#FF6B4A]/10 border-[#FF6B4A] text-[#FF6B4A]"
+                        : "bg-[#18181B] border-zinc-800 text-zinc-300"
+                    }`}
                   >
                     {p.name}
+                    {p.id == participantId && (
+                      <span className="ml-1.5 text-xs opacity-75">(You)</span>
+                    )}
                   </div>
                 ))}
               </div>
