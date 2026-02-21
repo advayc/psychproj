@@ -32,8 +32,8 @@ export default async function handler(req, res) {
     }
 
     const result = await sql`
-      INSERT INTO participants (name, session_id) 
-      VALUES (${name}, ${sessionId}) 
+      INSERT INTO participants (name, session_id, last_seen) 
+      VALUES (${name}, ${sessionId}, CURRENT_TIMESTAMP) 
       RETURNING id
     `;
 

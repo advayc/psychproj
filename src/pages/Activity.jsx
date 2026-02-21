@@ -13,6 +13,9 @@ export default function Activity() {
     const pId = localStorage.getItem("psych_participant_id");
     if (pId) setParticipantId(pId);
 
+    const savedName = localStorage.getItem("psych_participant_name");
+    if (savedName) setName(savedName);
+
     let sId = localStorage.getItem("psych_session_id");
     if (!sId) {
       sId = Math.random().toString(36).substring(7);
@@ -63,6 +66,7 @@ export default function Activity() {
       if (result.success) {
         setParticipantId(result.participantId);
         localStorage.setItem("psych_participant_id", result.participantId);
+        localStorage.setItem("psych_participant_name", name);
         toast.success("Joined the lobby!");
       } else {
         toast.error(result.error || "Failed to join");
@@ -146,7 +150,7 @@ export default function Activity() {
 
       {/* Header */}
       <div className="bg-[#18181B] sticky top-0 z-10 border-b border-zinc-800">
-        <div className="max-w-md mx-auto px-6 py-4">
+        <div className="max-w-md mx-auto px-6 py-4 flex flex-col space-y-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <Link to="/" className="w-10 h-10 bg-[#27272A] rounded-full flex items-center justify-center active:scale-95 transition-transform">
@@ -166,6 +170,11 @@ export default function Activity() {
                 {participants?.length || 0}
               </span>
             </div>
+          </div>
+          
+          <div className="bg-[#1A1A1D] rounded-2xl px-4 py-2 border border-zinc-700">
+            <p className="text-zinc-400 text-xs uppercase tracking-wider">You are:</p>
+            <p className="text-[#FF6B4A] font-semibold">{name}</p>
           </div>
         </div>
       </div>

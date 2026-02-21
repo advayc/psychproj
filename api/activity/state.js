@@ -15,10 +15,23 @@ export default async function handler(req, res) {
     const { participantId } = req.query;
 
     const [state] = await sql`SELECT * FROM activity_state WHERE id = 1`;
-    const participants = await sql`
+    
+    // Get all participants, prioritizing current user
+    let participants = await sql`
       SELECT id, name FROM participants 
-      WHERE last_seen > CURRENT_TIMESTAMP - INTERVAL '1 minute'
+      WHERE last_seen > CURRENT_TIMESTAMP - INTERVAL '5 minutes'
+      ORDER BY last_seen DESC
     `;
+    
+    // If current user is not in the list but exists, add them
+    if (participantId && !participants.some(p => p.id === participantId)) {
+      const currentUser = await sql`
+        SELECT id, name FROM participants WHERE id = ${participantId}
+      `;
+      if (currentUser.length > 0) {
+        participants = [currentUser[0], ...participants];
+      }
+    }
 
     let pairing = null;
     if (participantId && state.is_active) {
