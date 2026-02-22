@@ -9,10 +9,10 @@ export default function Home() {
         {/* Header */}
         <div className="space-y-4 sm:space-y-6">
           <div className="text-zinc-500 text-xs font-medium uppercase tracking-[0.2em]">
-            IB PSYCHOLOGY
+            WOOD'S IB PSYCHOLOGY
           </div>
           <h1 className="text-white text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
-            Schizophrenia Study
+            Schizophrenia Seminar
           </h1>
           <p className="text-zinc-400 text-base sm:text-lg md:text-xl leading-relaxed">
             Interactive learning platform for diagnostic criteria and research studies
@@ -26,8 +26,8 @@ export default function Home() {
             <div className="text-zinc-500 text-xs sm:text-sm">Studies</div>
           </div>
           <div className="bg-[#27272A]/80 border border-zinc-800/50 rounded-2xl sm:rounded-3xl p-4 sm:p-6">
-            <div className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-1 sm:mb-2">5+</div>
-            <div className="text-zinc-500 text-xs sm:text-sm">Criteria</div>
+            <div className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-1 sm:mb-2">2</div>
+            <div className="text-zinc-500 text-xs sm:text-sm">FAD's</div>
           </div>
           <div className="bg-[#27272A]/80 border border-zinc-800/50 rounded-2xl sm:rounded-3xl p-4 sm:p-6">
             <div className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-1 sm:mb-2">DSM</div>
