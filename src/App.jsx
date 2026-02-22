@@ -20,7 +20,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <Toaster position="top-center" theme="dark" />
+        <Toaster position="top-center" theme='light' />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/activity" element={<Activity />} />

@@ -111,23 +111,23 @@ export default function Activity() {
 
   if (!participantId) {
     return (
-      <div className="min-h-screen bg-[#18181B] flex flex-col items-center justify-center p-6">
+      <div className="min-h-screen bg-green-50 flex flex-col items-center justify-center p-6">
         <div className="max-w-md w-full space-y-8">
           <div className="text-center space-y-4">
-            <div className="text-zinc-500 text-xs font-medium uppercase tracking-wider">
+            <div className="text-gray-500 text-xs font-medium uppercase tracking-wider">
               Live Activity
             </div>
-            <h1 className="text-white text-4xl font-bold leading-tight">
+            <h1 className="text-black text-4xl font-bold leading-tight">
               Join the Experiment
             </h1>
-            <p className="text-zinc-400 text-base">
+            <p className="text-gray-600 text-base">
               Enter your name to participate in the diagnostic exercise
             </p>
           </div>
 
           <form onSubmit={handleJoin} className="space-y-4">
             <div className="space-y-2">
-              <label className="text-zinc-500 text-xs font-medium uppercase tracking-wider">
+              <label className="text-gray-500 text-xs font-medium uppercase tracking-wider">
                 Your Name
               </label>
               <input
@@ -135,18 +135,18 @@ export default function Activity() {
                 placeholder="First and Last Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full p-4 bg-[#27272A] border border-zinc-800 rounded-2xl focus:ring-2 focus:ring-[#FF6B4A] focus:border-transparent outline-none transition-all text-white placeholder-zinc-500"
+                className="w-full p-4 bg-white border border-green-300 rounded-2xl focus:ring-2 focus:ring-[#7C3AED] focus:border-transparent outline-none transition-all text-black placeholder-gray-400"
                 required
               />
             </div>
 
-            <button className="w-full bg-[#FF6B4A] text-white font-bold py-4 rounded-2xl hover:bg-[#FF5A39] transition-all active:scale-[0.98]">
+            <button className="w-full bg-[#7C3AED] text-white font-bold py-4 rounded-2xl hover:bg-purple-700 transition-all active:scale-[0.98]">
               Enter Lobby
             </button>
           </form>
 
           <div className="text-center pt-4">
-            <Link to="/" className="text-zinc-500 text-sm font-medium inline-flex items-center space-x-2">
+            <Link to="/" className="text-gray-500 text-sm font-medium inline-flex items-center space-x-2 hover:text-gray-700">
               <ChevronLeft className="w-4 h-4" />
               <span>Back</span>
             </Link>
@@ -160,7 +160,7 @@ export default function Activity() {
   const isActive = state?.is_active;
 
   return (
-    <div className="min-h-screen bg-[#18181B]">
+    <div className="min-h-screen bg-green-50">
       <style jsx global>{`
         @keyframes pulse-glow {
           0%, 100% { opacity: 1; }
@@ -182,37 +182,37 @@ export default function Activity() {
       `}</style>
 
       {/* Header */}
-      <div className="bg-[#18181B] sticky top-0 z-10 border-b border-zinc-800">
+      <div className="bg-green-50 sticky top-0 z-10 border-b border-green-200">
         <div className="max-w-md mx-auto px-6 py-4 flex flex-col space-y-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <Link to="/" className="w-10 h-10 bg-[#27272A] rounded-full flex items-center justify-center active:scale-95 transition-transform">
-                <ChevronLeft className="w-5 h-5 text-zinc-400" />
+              <Link to="/" className="w-10 h-10 bg-white rounded-full flex items-center justify-center active:scale-95 transition-transform border border-green-200">
+                <ChevronLeft className="w-5 h-5 text-gray-500" />
               </Link>
               <div>
-                <div className="text-zinc-500 text-xs font-medium uppercase tracking-wider">
+                <div className="text-gray-500 text-xs font-medium uppercase tracking-wider">
                   Live Activity
                 </div>
-                <h1 className="text-white text-xl font-bold">Exercise</h1>
+                <h1 className="text-black text-xl font-bold">Exercise</h1>
               </div>
             </div>
 
-            <div className="flex items-center space-x-2 bg-[#27272A] border border-zinc-800 px-3 py-2 rounded-full">
+            <div className="flex items-center space-x-2 bg-white border border-green-200 px-3 py-2 rounded-full">
               <div className="w-2 h-2 bg-[#10B981] rounded-full pulse-glow" />
-              <span className="text-zinc-400 text-xs font-medium">
+              <span className="text-gray-600 text-xs font-medium">
                 {participants?.length || 0}
               </span>
             </div>
           </div>
           
-          <div className="bg-[#1A1A1D] rounded-2xl px-4 py-2 border border-zinc-700 flex items-center justify-between">
+          <div className="bg-white rounded-2xl px-4 py-2 border border-green-200 flex items-center justify-between">
             <div>
-              <p className="text-zinc-400 text-xs uppercase tracking-wider">You are:</p>
-              <p className="text-[#FF6B4A] font-semibold">{name || "Unknown"}</p>
+              <p className="text-gray-500 text-xs uppercase tracking-wider">You are:</p>
+              <p className="text-[#7C3AED] font-semibold">{name || "Unknown"}</p>
             </div>
             <button 
               onClick={handleResetRegistration}
-              className="text-zinc-500 hover:text-zinc-300 text-xs font-medium transition-colors"
+              className="text-gray-500 hover:text-gray-700 text-xs font-medium transition-colors"
             >
               Reset
             </button>
@@ -222,24 +222,24 @@ export default function Activity() {
 
       <div className="max-w-md mx-auto px-6 py-6 space-y-6 pb-32">
         {!isActive ? (
-          <div className="bg-[#27272A] border border-zinc-800 rounded-3xl p-8 text-center space-y-6">
+          <div className="bg-white border border-green-200 rounded-3xl p-8 text-center space-y-6">
             <div className="flex justify-center">
-              <div className="w-16 h-16 bg-[#FF6B4A]/10 rounded-2xl flex items-center justify-center">
-                <Loader2 className="w-8 h-8 text-[#FF6B4A] spin" />
+              <div className="w-16 h-16 bg-[#7C3AED]/10 rounded-2xl flex items-center justify-center">
+                <Loader2 className="w-8 h-8 text-[#7C3AED] spin" />
               </div>
             </div>
 
             <div className="space-y-2">
-              <h2 className="text-white text-2xl font-bold">
+              <h2 className="text-black text-2xl font-bold">
                 Waiting for Instructor
               </h2>
-              <p className="text-zinc-400 text-sm">
+              <p className="text-gray-600 text-sm">
                 The activity will begin shortly
               </p>
             </div>
 
             <div className="space-y-3 pt-4">
-              <div className="text-zinc-500 text-xs font-medium uppercase tracking-wider">
+              <div className="text-gray-500 text-xs font-medium uppercase tracking-wider">
                 In Lobby
               </div>
               <div className="grid grid-cols-2 gap-2">
@@ -248,8 +248,8 @@ export default function Activity() {
                     key={p.id}
                     className={`p-3 rounded-xl border text-sm font-medium ${
                       p.id == participantId
-                        ? "bg-[#FF6B4A]/10 border-[#FF6B4A] text-[#FF6B4A]"
-                        : "bg-[#18181B] border-zinc-800 text-zinc-300"
+                        ? "bg-[#7C3AED]/10 border-[#7C3AED] text-[#7C3AED]"
+                        : "bg-green-50 border-green-200 text-black"
                     }`}
                   >
                     {p.name}
@@ -264,51 +264,51 @@ export default function Activity() {
         ) : (
           <div className="space-y-6">
             {/* Round */}
-            <div className="bg-[#27272A] border border-zinc-800 rounded-3xl p-6">
+            <div className="bg-white border border-green-200 rounded-3xl p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-zinc-500 text-xs font-medium uppercase tracking-wider mb-1">
+                  <div className="text-gray-500 text-xs font-medium uppercase tracking-wider mb-1">
                     Round
                   </div>
-                  <div className="text-white text-4xl font-bold">
+                  <div className="text-black text-4xl font-bold">
                     {state.current_round}
                   </div>
                 </div>
-                <div className="w-14 h-14 bg-[#FF6B4A]/10 rounded-2xl flex items-center justify-center">
-                  <Users className="w-7 h-7 text-[#FF6B4A]" />
+                <div className="w-14 h-14 bg-[#7C3AED]/10 rounded-2xl flex items-center justify-center">
+                  <Users className="w-7 h-7 text-[#7C3AED]" />
                 </div>
               </div>
             </div>
 
             {/* Partner Card */}
-            <div className="bg-[#27272A] border border-zinc-800 rounded-3xl p-8 space-y-6">
+            <div className="bg-white border border-green-200 rounded-3xl p-8 space-y-6">
               <div className="space-y-2">
-                <div className="text-zinc-500 text-xs font-medium uppercase tracking-wider">
+                <div className="text-gray-500 text-xs font-medium uppercase tracking-wider">
                   Your Partner
                 </div>
-                <h2 className="text-white text-3xl font-bold">
+                <h2 className="text-black text-3xl font-bold">
                   {pairing ? pairing.partner_name : "Awaiting Assignment"}
                 </h2>
               </div>
 
-              <div className="bg-[#18181B] border border-zinc-800 rounded-2xl p-6 space-y-3">
-                <div className="flex items-center space-x-2 text-[#FF6B4A]">
+              <div className="bg-green-50 border border-green-200 rounded-2xl p-6 space-y-3">
+                <div className="flex items-center space-x-2 text-[#7C3AED]">
                   <MessageCircle className="w-4 h-4" />
                   <span className="text-xs font-medium uppercase tracking-wider">
                     Topic
                   </span>
                 </div>
-                <p className="text-white text-lg font-medium leading-relaxed">
+                <p className="text-black text-lg font-medium leading-relaxed">
                   {state.current_topic || "Introduce yourselves"}
                 </p>
               </div>
             </div>
 
             {/* All Participants */}
-            <div className="bg-[#27272A] border border-zinc-800 rounded-3xl p-6 space-y-4">
+            <div className="bg-white border border-green-200 rounded-3xl p-6 space-y-4">
               <div className="flex items-center space-x-3">
-                <Users className="w-5 h-5 text-zinc-400" />
-                <h3 className="text-white text-lg font-bold">
+                <Users className="w-5 h-5 text-gray-500" />
+                <h3 className="text-black text-lg font-bold">
                   All Participants
                 </h3>
               </div>
@@ -319,8 +319,8 @@ export default function Activity() {
                     key={p.id}
                     className={`p-3 rounded-xl border text-sm font-medium ${
                       p.id == participantId
-                        ? "bg-[#FF6B4A]/10 border-[#FF6B4A] text-[#FF6B4A]"
-                        : "bg-[#18181B] border-zinc-800 text-zinc-400"
+                        ? "bg-[#7C3AED]/10 border-[#7C3AED] text-[#7C3AED]"
+                        : "bg-green-50 border-green-200 text-gray-700"
                     }`}
                   >
                     {p.name}

@@ -9,7 +9,8 @@
 }
 
 html, body {
-  background-color: #18181B;
+  background-color: #F0FDF4;
+  color: #000000;
   min-height: 100vh;
   min-height: 100dvh;
   overflow-x: hidden;
@@ -26,5 +27,5 @@ body {
 #root {
   min-height: 100vh;
   min-height: 100dvh;
-  background-color: #18181B;
+  background-color: #F0FDF4;
 }
