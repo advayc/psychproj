@@ -1,10 +1,14 @@
 # Psych Experiment App
 
+<p align="center">
+  <img src="./public/banner2.svg" alt="Psych Experiment App Banner" width="100%" />
+</p>
+
 A psychology experiment pairing activity app built with React, Vite, and Neon PostgreSQL database.
 
 ## Live Demo
 
-Production: https://web-six-xi-89.vercel.app
+Production: https://web-six-xi-89.vercel.app or https://psych.advay.ca
 
 ## Features
 
