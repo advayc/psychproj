@@ -41,7 +41,7 @@ const STUDIES = [
       "Clinicians need awareness of cultural differences. Diagnostic tools (DSM/ICD) must be applied carefully considering patient's cultural background.",
   },
   {
-    name: "Rosenhan",
+    name: "Rosenhan et al.",
     year: "1973",
     aim: "Test if psychiatrists can distinguish between sane and insane individuals and examine validity of psychiatric diagnosis.",
     method:
