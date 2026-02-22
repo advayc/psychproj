@@ -6,12 +6,25 @@
   <circle cx="1050" cy="100" r="350" fill="#7C3AED" opacity="0.05"/>
   <circle cx="150" cy="550" r="250" fill="#10B981" opacity="0.05"/>
   
-  <!-- Psi Icon -->
-  <g transform="translate(0, -40)">
-    <path d="M600 200v180M510 250v40c0 50 40 90 90 90h0c50 0 90-40 90-90v-40" fill="none" stroke="#7C3AED" stroke-width="36" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Icon Box on the Left -->
+  <rect x="120" y="115" width="400" height="400" rx="64" fill="#ffffff" stroke="#bbf7d0" stroke-width="4"/>
+  
+  <!-- Brain Icon inside the box -->
+  <g transform="translate(170, 165) scale(12.5)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" stroke="#7C3AED" stroke-width="2"/>
+    <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" stroke="#7C3AED" stroke-width="2"/>
+    <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" stroke="#10B981" stroke-width="2"/>
+    <path d="M17.599 6.5a3 3 0 0 0 .399-1.375" stroke="#10B981" stroke-width="2"/>
+    <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" stroke="#10B981" stroke-width="2"/>
+    <path d="M3.477 10.896a4 4 0 0 1 .585-.396" stroke="#10B981" stroke-width="2"/>
+    <path d="M19.938 10.5a4 4 0 0 1 .585.396" stroke="#10B981" stroke-width="2"/>
+    <path d="M6 18a4 4 0 0 1-1.967-.516" stroke="#10B981" stroke-width="2"/>
+    <path d="M19.967 17.484A4 4 0 0 1 18 18" stroke="#10B981" stroke-width="2"/>
   </g>
   
-  <!-- Text Content -->
-  <text x="600" y="460" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="72" font-weight="800" fill="#000000" text-anchor="middle" letter-spacing="-1">IB Psychology Study</text>
-  <text x="600" y="530" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="36" font-weight="500" fill="#4B5563" text-anchor="middle">Schizophrenia Diagnostic Exercise</text>
+  <!-- Text Content on the Right -->
+  <text x="580" y="280" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="96" font-weight="800" fill="#000000" letter-spacing="-2">Psych Study</text>
+  <text x="580" y="360" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="48" font-weight="600" fill="#4B5563">Schizophrenia Diagnostic</text>
+  <text x="580" y="420" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="48" font-weight="600" fill="#4B5563">Exercise</text>
+  <text x="580" y="490" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="500" fill="#7C3AED">Interactive IB Psychology Tool</text>
 </svg>
