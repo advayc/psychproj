@@ -1,0 +1,17 @@
+{
+  "name": "IB Psychology Study",
+  "short_name": "Psych Study",
+  "description": "Interactive diagnostic exercise for Schizophrenia study",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F0FDF4",
+  "theme_color": "#F0FDF4",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

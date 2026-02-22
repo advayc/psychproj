@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#F0FDF4"/>
+  
+  <!-- Decorative background circles -->
+  <circle cx="1050" cy="100" r="350" fill="#7C3AED" opacity="0.05"/>
+  <circle cx="150" cy="550" r="250" fill="#10B981" opacity="0.05"/>
+  
+  <!-- Psi Icon -->
+  <g transform="translate(0, -40)">
+    <path d="M600 200v180M510 250v40c0 50 40 90 90 90h0c50 0 90-40 90-90v-40" fill="none" stroke="#7C3AED" stroke-width="36" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  
+  <!-- Text Content -->
+  <text x="600" y="460" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="72" font-weight="800" fill="#000000" text-anchor="middle" letter-spacing="-1">IB Psychology Study</text>
+  <text x="600" y="530" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="36" font-weight="500" fill="#4B5563" text-anchor="middle">Schizophrenia Diagnostic Exercise</text>
+</svg>
