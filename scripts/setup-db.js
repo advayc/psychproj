@@ -23,13 +23,19 @@ async function setupDb() {
       id INTEGER PRIMARY KEY DEFAULT 1,
       is_active BOOLEAN DEFAULT false,
       current_round INTEGER DEFAULT 0,
+      current_topic TEXT,
       updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )
   `;
 
+  // Add current_topic column if it doesn't exist (for existing deployments)
   await sql`
-    INSERT INTO activity_state (id, is_active, current_round)
-    VALUES (1, false, 0)
+    ALTER TABLE activity_state ADD COLUMN IF NOT EXISTS current_topic TEXT
+  `;
+
+  await sql`
+    INSERT INTO activity_state (id, is_active, current_round, current_topic)
+    VALUES (1, false, 0, NULL)
     ON CONFLICT (id) DO NOTHING
   `;
 
