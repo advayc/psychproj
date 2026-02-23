@@ -150,18 +150,26 @@ export default function Learn() {
 
       <div className="max-w-md mx-auto px-6 py-6 pb-32">
         {/* Tabs */}
-        <div className="flex bg-white p-1 rounded-2xl mb-6 border border-green-200 overflow-x-auto">
+        <div className="flex gap-0.5 bg-white p-1 rounded-2xl mb-6 border border-green-200 overflow-x-auto justify-center">
           <button
             onClick={() => setActiveTab("dsm")}
-            className={`flex-1 py-3 px-3 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
+            className={`flex-1 py-2.5 px-1.5 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
               activeTab === "dsm" ? "bg-[#7C3AED] text-white" : "text-gray-600"
             }`}
           >
             DSM-5
           </button>
           <button
+            onClick={() => setActiveTab("fad")}
+            className={`flex-1 py-2.5 px-1.5 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
+              activeTab === "fad" ? "bg-[#7C3AED] text-white" : "text-gray-600"
+            }`}
+          >
+            FAD
+          </button>
+          <button
             onClick={() => setActiveTab("treatments")}
-            className={`flex-1 py-3 px-3 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
+            className={`flex-1 py-2.5 px-1.5 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
               activeTab === "treatments" ? "bg-[#7C3AED] text-white" : "text-gray-600"
             }`}
           >
@@ -169,7 +177,7 @@ export default function Learn() {
           </button>
           <button
             onClick={() => setActiveTab("studies")}
-            className={`flex-1 py-3 px-3 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
+            className={`flex-1 py-2.5 px-1.5 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
               activeTab === "studies"
                 ? "bg-[#7C3AED] text-white"
                 : "text-gray-600"
@@ -178,16 +186,8 @@ export default function Learn() {
             Studies
           </button>
           <button
-            onClick={() => setActiveTab("fad")}
-            className={`flex-1 py-3 px-3 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
-              activeTab === "fad" ? "bg-[#7C3AED] text-white" : "text-gray-600"
-            }`}
-          >
-            FAD
-          </button>
-          <button
             onClick={() => setActiveTab("tips")}
-            className={`flex-1 py-3 px-3 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
+            className={`flex-1 py-2.5 px-1.5 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
               activeTab === "tips" ? "bg-[#7C3AED] text-white" : "text-gray-600"
             }`}
           >
