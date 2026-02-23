@@ -44,7 +44,8 @@ export default async function handler(req, res) {
       const pairings = await sql`
         SELECT 
           p1.name as partner_name,
-          p2.name as self_name
+          p2.name as self_name,
+          pair.topic
         FROM pairings pair
         JOIN participants p1 ON (pair.participant_a_id = p1.id OR pair.participant_b_id = p1.id)
         JOIN participants p2 ON (pair.participant_a_id = p2.id OR pair.participant_b_id = p2.id)
