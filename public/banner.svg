@@ -23,7 +23,7 @@
   </g>
   
   <!-- Text Content on the Right -->
-  <text x="580" y="280" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="96" font-weight="800" fill="#000000" letter-spacing="-2">Psych Study</text>
+  <text x="580" y="280" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="96" font-weight="800" fill="#000000">Psych Study</text>
   <text x="580" y="360" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="48" font-weight="600" fill="#4B5563">Schizophrenia Diagnostic</text>
   <text x="580" y="420" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="48" font-weight="600" fill="#4B5563">Exercise</text>
   <text x="580" y="490" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="500" fill="#7C3AED">Interactive IB Psychology Tool</text>
