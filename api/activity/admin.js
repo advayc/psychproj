@@ -3,16 +3,17 @@ import { neon } from '@neondatabase/serverless';
 const sql = process.env.DATABASE_URL ? neon(process.env.DATABASE_URL) : null;
 
 const TOPICS = [
-  "The current weather and how it affects your mood",
-  "Crime rates in different neighborhoods",
-  "Your favorite childhood memory",
-  "A recent news story that caught your attention",
-  "What you ate for breakfast today",
-  "Your thoughts on social media's impact on mental health",
-  "If you could travel anywhere right now, where would it be?",
-  "A movie or book that changed your perspective",
-  "How technology has changed the way we communicate",
-  "Your dream job and why",
+  "Who in this class would you want as your teammate through a zombie apocalypse?",
+  "Would you rather be known for something great that you never actually did, or be responsible for something great that no one ever knows you did?",
+  "Do you think who someone is is shaped more by the friends they surround themselves with or by their parents?",
+  "Do you think emotions and feelings are universal amongst humans? Or do we all experience the feeling of “happiness” differently?",
+  "If a behaviour you considered completely normal was actually listed as a symptom of a mental disorder, would that change your perspective of the behaviour or the diagnosis?",
+  "Would you rather lose all your memories or never be able to make new ones?",
+  "If someone steals out of necessity rather than greed, should they still be punished the same way?",
+  "Would you rather understand all the content but do badly on the exam, or do really well on the exam without fully understanding the content?",
+  "Would you rather get a 7 with very little effort, or a 6 that you worked extremely hard for?",
+  "If aliens invaded the Earth and we needed to nominate one person from our class to negotiate with them, who would that be?",
+  "Do you have any regrets about high school? If you could do one thing differently, what would you do?",
 ];
 
 function shuffle(array) {
