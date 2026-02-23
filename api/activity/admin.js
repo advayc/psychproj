@@ -24,6 +24,10 @@ function shuffle(array) {
   return array;
 }
 
+function randomTopic() {
+  return TOPICS[Math.floor(Math.random() * TOPICS.length)];
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -38,7 +42,7 @@ export default async function handler(req, res) {
 
     if (action === "reset") {
       // Clear activity state
-      await sql`UPDATE activity_state SET is_active = false, current_round = 0, current_topic = NULL WHERE id = 1`;
+      await sql`UPDATE activity_state SET is_active = false, current_round = 0 WHERE id = 1`;
       // Clear all pairings
       await sql`DELETE FROM pairings`;
       // Clear all participants
@@ -57,7 +61,6 @@ export default async function handler(req, res) {
       // Get current state
       const [state] = await sql`SELECT * FROM activity_state WHERE id = 1`;
       const nextRound = (state.current_round || 0) + 1;
-      const nextTopic = TOPICS[Math.floor(Math.random() * TOPICS.length)];
 
       // Get active participants
       const participants = await sql`
@@ -77,6 +80,7 @@ export default async function handler(req, res) {
           round_number: nextRound,
           participant_a_id: shuffled[i].id,
           participant_b_id: shuffled[i + 1].id,
+          topic: randomTopic(),
         });
       }
 
@@ -88,6 +92,7 @@ export default async function handler(req, res) {
           round_number: nextRound,
           participant_a_id: lastPerson.id,
           participant_b_id: randomPartner.id,
+          topic: randomTopic(),
         });
       }
 
@@ -96,7 +101,6 @@ export default async function handler(req, res) {
         UPDATE activity_state 
         SET is_active = true, 
             current_round = ${nextRound}, 
-            current_topic = ${nextTopic},
             updated_at = CURRENT_TIMESTAMP
         WHERE id = 1
       `;
@@ -104,15 +108,14 @@ export default async function handler(req, res) {
       // Insert pairings
       for (const p of newPairings) {
         await sql`
-          INSERT INTO pairings (round_number, participant_a_id, participant_b_id)
-          VALUES (${p.round_number}, ${p.participant_a_id}, ${p.participant_b_id})
+          INSERT INTO pairings (round_number, participant_a_id, participant_b_id, topic)
+          VALUES (${p.round_number}, ${p.participant_a_id}, ${p.participant_b_id}, ${p.topic})
         `;
       }
 
       return res.json({
         success: true,
         round: nextRound,
-        topic: nextTopic,
       });
     }
 

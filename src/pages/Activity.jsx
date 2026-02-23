@@ -299,7 +299,7 @@ export default function Activity() {
                   </span>
                 </div>
                 <p className="text-black text-lg font-medium leading-relaxed">
-                  {state.current_topic || "Introduce yourselves"}
+                  {pairing?.topic || "Introduce yourselves"}
                 </p>
               </div>
             </div>
