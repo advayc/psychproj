@@ -205,18 +205,6 @@ export default function Activity() {
             </div>
           </div>
           
-          <div className="bg-white rounded-2xl px-4 py-2 border border-green-200 flex items-center justify-between">
-            <div>
-              <p className="text-gray-500 text-xs uppercase tracking-wider">You are:</p>
-              <p className="text-[#7C3AED] font-semibold">{name || "Unknown"}</p>
-            </div>
-            <button 
-              onClick={handleResetRegistration}
-              className="text-gray-500 hover:text-gray-700 text-xs font-medium transition-colors"
-            >
-              Reset
-            </button>
-          </div>
         </div>
       </div>
 

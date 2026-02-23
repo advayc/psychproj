@@ -3,7 +3,16 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const sql = neon(process.env.DATABASE_URL);
+// Ensure DATABASE_URL is provided (avoid cryptic stack traces from neon())
+const dbUrl = process.env.DATABASE_URL;
+if (!dbUrl) {
+  console.error('Missing DATABASE_URL environment variable.\n\n' +
+    'Set it in a .env file or export it in your shell before running this script.\n' +
+    'Example:\n  export DATABASE_URL="postgres://..."\n  node scripts/setup-db.js');
+  process.exit(1);
+}
+
+const sql = neon(dbUrl);
 
 async function setupDb() {
   console.log('Setting up database...');
