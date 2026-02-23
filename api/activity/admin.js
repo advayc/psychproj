@@ -5,7 +5,7 @@ const sql = process.env.DATABASE_URL ? neon(process.env.DATABASE_URL) : null;
 const TOPICS = [
   "Who in this class would you want as your teammate through a zombie apocalypse?",
   "Would you rather be known for something great that you never actually did, or be responsible for something great that no one ever knows you did?",
-  "Do you think who someone is is shaped more by the friends they surround themselves with or by their parents?",
+  "Do you think someone is shaped more by the friends they surround themselves with or by their parents?",
   "Do you think emotions and feelings are universal amongst humans? Or do we all experience the feeling of “happiness” differently?",
   "If a behaviour you considered completely normal was actually listed as a symptom of a mental disorder, would that change your perspective of the behaviour or the diagnosis?",
   "Would you rather lose all your memories or never be able to make new ones?",
