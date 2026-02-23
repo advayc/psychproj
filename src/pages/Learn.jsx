@@ -57,6 +57,56 @@ const STUDIES = [
   },
 ];
 
+const TREATMENTS = [
+  {
+    category: "Biological",
+    items: [
+      {
+        name: "Antipsychotic Medications",
+        desc: "Typical antipsychotics (e.g., Haloperidol) and atypical antipsychotics (e.g., Clozapine, Risperidone) help manage positive symptoms like hallucinations and delusions by regulating neurotransmitters, particularly dopamine.",
+      },
+      {
+        name: "Side Effect Management",
+        desc: "Regular monitoring and adjustment of medications to minimize side effects such as weight gain, movement disorders, and metabolic changes.",
+      },
+    ],
+  },
+  {
+    category: "Cognitive",
+    items: [
+      {
+        name: "Cognitive Behavioral Therapy (CBT)",
+        desc: "Helps patients challenge and reframe distorted thoughts, develop coping strategies for symptoms, and improve daily functioning.",
+      },
+      {
+        name: "Family Therapy",
+        desc: "Educates family members about schizophrenia, reduces expressed emotion, and improves communication patterns to create a supportive home environment.",
+      },
+      {
+        name: "Social Skills Training",
+        desc: "Teaches interpersonal skills, emotion recognition, and practical life skills to improve social functioning and independence.",
+      },
+    ],
+  },
+  {
+    category: "Social",
+    items: [
+      {
+        name: "Supported Employment Programs",
+        desc: "Vocational rehabilitation and job coaching to help individuals maintain meaningful employment and build self-esteem.",
+      },
+      {
+        name: "Community Support Services",
+        desc: "Housing assistance, peer support groups, and case management to maintain stability and prevent relapse.",
+      },
+      {
+        name: "Psychoeducation",
+        desc: "Teaching patients and families about the disorder, treatment options, early warning signs, and relapse prevention strategies.",
+      },
+    ],
+  },
+];
+
 const TIPS = [
   {
     title: "Always Look Back on the Command Term",
@@ -100,18 +150,26 @@ export default function Learn() {
 
       <div className="max-w-md mx-auto px-6 py-6 pb-32">
         {/* Tabs */}
-        <div className="flex bg-white p-1 rounded-2xl mb-6 border border-green-200">
+        <div className="flex bg-white p-1 rounded-2xl mb-6 border border-green-200 overflow-x-auto">
           <button
             onClick={() => setActiveTab("dsm")}
-            className={`flex-1 py-3 px-4 text-sm font-semibold rounded-xl transition-all ${
+            className={`flex-1 py-3 px-3 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
               activeTab === "dsm" ? "bg-[#7C3AED] text-white" : "text-gray-600"
             }`}
           >
             DSM-5
           </button>
           <button
+            onClick={() => setActiveTab("treatments")}
+            className={`flex-1 py-3 px-3 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
+              activeTab === "treatments" ? "bg-[#7C3AED] text-white" : "text-gray-600"
+            }`}
+          >
+            Treatments
+          </button>
+          <button
             onClick={() => setActiveTab("studies")}
-            className={`flex-1 py-3 px-4 text-sm font-semibold rounded-xl transition-all ${
+            className={`flex-1 py-3 px-3 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
               activeTab === "studies"
                 ? "bg-[#7C3AED] text-white"
                 : "text-gray-600"
@@ -121,7 +179,7 @@ export default function Learn() {
           </button>
           <button
             onClick={() => setActiveTab("fad")}
-            className={`flex-1 py-3 px-4 text-sm font-semibold rounded-xl transition-all ${
+            className={`flex-1 py-3 px-3 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
               activeTab === "fad" ? "bg-[#7C3AED] text-white" : "text-gray-600"
             }`}
           >
@@ -129,7 +187,7 @@ export default function Learn() {
           </button>
           <button
             onClick={() => setActiveTab("tips")}
-            className={`flex-1 py-3 px-4 text-sm font-semibold rounded-xl transition-all ${
+            className={`flex-1 py-3 px-3 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
               activeTab === "tips" ? "bg-[#7C3AED] text-white" : "text-gray-600"
             }`}
           >
@@ -169,6 +227,43 @@ export default function Learn() {
                     </p>
                   </div>
                 </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Treatments Content */}
+        {activeTab === "treatments" && (
+          <div className="space-y-4">
+            {/* Note at top */}
+            <div className="bg-green-100 rounded-2xl p-4 flex gap-3 items-start border border-green-300">
+              <div className="flex-shrink-0 w-7 h-7 flex items-center justify-center mt-0.5">
+                <Lightbulb className="w-5 h-5 text-[#7C3AED] stroke-[1.8]" />
+              </div>
+              <div className="text-black text-[13px] leading-relaxed">
+                <strong className="text-black font-semibold">Note:</strong> There's no objective cure for schizophrenia, but there are treatments to help manage the symptoms! Keep in mind that these treatments use a biopsychosocial approach.
+              </div>
+            </div>
+
+            {/* Treatment categories */}
+            {TREATMENTS.map((treatment, i) => (
+              <div key={i} className="space-y-3">
+                <div className="text-[#7C3AED] text-xs font-semibold uppercase tracking-[2px]">
+                  {treatment.category}
+                </div>
+                {treatment.items.map((item, j) => (
+                  <div
+                    key={j}
+                    className="bg-white rounded-2xl p-5 border border-green-200"
+                  >
+                    <h3 className="text-black text-base font-bold mb-2">
+                      {item.name}
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                ))}
               </div>
             ))}
           </div>
