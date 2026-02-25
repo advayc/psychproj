@@ -28,19 +28,6 @@ const DSM_CRITERIA = [
 
 const STUDIES = [
   {
-    name: "Copeland et al.",
-    year: "1971",
-    aim: "Investigate if psychiatrists from US vs UK diagnose the same patient differently for schizophrenia.",
-    method:
-      "Quasi-experimental design using standardized clinical case descriptions shown to psychiatrists in both countries.",
-    results:
-      "69% of US psychiatrists diagnosed schizophrenia, while only 2% of UK psychiatrists did for identical patient presentations. British clinicians often diagnosed mood disorders instead.",
-    conclusion:
-      "Diagnosis is influenced by cultural and professional context. Psychiatric diagnosis is not purely objective—identical symptoms can be interpreted differently depending on training and country.",
-    application:
-      "Clinicians need awareness of cultural differences. Diagnostic tools (DSM/ICD) must be applied carefully considering patient's cultural background.",
-  },
-  {
     name: "Rosenhan et al.",
     year: "1973",
     aim: "Test if psychiatrists can distinguish between sane and insane individuals and examine validity of psychiatric diagnosis.",
@@ -54,6 +41,21 @@ const STUDIES = [
       "Clinicians could not reliably distinguish sane from insane. Diagnostic labels strongly influenced staff interpretation of behavior. Psychiatric diagnosis at the time lacked validity.",
     application:
       "Led to improved diagnostic criteria (DSM-III), structured interviews, and increased awareness of labeling and stigma.",
+  },
+  {
+    name: "Copeland et al.",
+    year: "1971",
+    aim: "Investigate if psychiatrists from US vs UK diagnose the same patient differently for schizophrenia.",
+    method:
+      "Quasi-experimental design using standardized clinical case descriptions shown to psychiatrists in both countries.",
+    procedure:
+      "The researchers created descriptions of psychiatric patients through videotaped interviews. These tapes showed patients presenting clinical symptoms relevant to psychiatric diagnoses. 134 trained psychiatrists from the USA and 194 from the UK were shown the same videos, and were asked to give a diagnosis.",
+    results:
+      "69% of US psychiatrists diagnosed schizophrenia, while only 2% of UK psychiatrists did for identical patient presentations. British clinicians often diagnosed mood disorders instead.",
+    conclusion:
+      "Diagnosis is influenced by cultural and professional context. Psychiatric diagnosis is not purely objective—identical symptoms can be interpreted differently depending on training and country.",
+    application:
+      "Clinicians need awareness of cultural differences. Diagnostic tools (DSM/ICD) must be applied carefully considering patient's cultural background.",
   },
 ];
 
