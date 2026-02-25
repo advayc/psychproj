@@ -240,7 +240,7 @@ export default function Learn() {
               <div className="text-gray-600 text-[13px] leading-relaxed">
                 A variant of this question was asked during the{' '}
                 <a
-                  href="https://repo.pirateib.su/IB%20PAST%20PAPERS%20-%20SUBJECT/Group%203%20-%20Individuals%20and%20Societies/Psychology_HL/2019%20November%20Examination%20Session/Psychology_paper_2__HL.pdf"
+                  href="/Psychology_paper_2__HL.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#7C3AED] font-semibold underline underline-offset-2 hover:text-purple-800 transition-colors"
