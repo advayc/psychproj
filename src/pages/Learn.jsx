@@ -148,69 +148,77 @@ export default function Learn() {
         </div>
       </div>
 
-      <div className="max-w-md mx-auto px-6 py-6 pb-32">
-        {/* Tabs: FAD, Treatments, Tips */}
+      <div className={`mx-auto px-6 py-6 pb-32 ${activeTab === "studies" ? "max-w-4xl" : "max-w-md"}`}>
+        {/* Tabs */}
         <div className="flex gap-0.5 bg-white p-1 rounded-2xl mb-6 border border-green-200 overflow-x-auto justify-center">
-          <button
-            onClick={() => setActiveTab("fad")}
-            className={`flex-1 py-2.5 px-1.5 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
-              activeTab === "fad" ? "bg-[#7C3AED] text-white" : "text-gray-600"
-            }`}
-          >
-            FAD
-          </button>
-          <button
-            onClick={() => setActiveTab("treatments")}
-            className={`flex-1 py-2.5 px-1.5 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
-              activeTab === "treatments" ? "bg-[#7C3AED] text-white" : "text-gray-600"
-            }`}
-          >
-            Treatments
-          </button>
-          <button
-            onClick={() => setActiveTab("tips")}
-            className={`flex-1 py-2.5 px-1.5 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
-              activeTab === "tips" ? "bg-[#7C3AED] text-white" : "text-gray-600"
-            }`}
-          >
-            Tips
-          </button>
+          {[
+            { key: "fad", label: "FAD" },
+            { key: "studies", label: "Studies" },
+            { key: "tips", label: "Tips" },
+          ].map((tab) => (
+            <button
+              key={tab.key}
+              onClick={() => setActiveTab(tab.key)}
+              className={`flex-1 py-2.5 px-1.5 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${(activeTab === tab.key) ? "bg-[#7C3AED] text-white" : "text-gray-600"}`}
+            >
+              {tab.label}
+            </button>
+          ))}
         </div>
 
         {/* DSM content moved to /studies (main page). Learn now focuses on FAD, Treatments, Tips */}
 
-        {/* Treatments Content */}
-        {activeTab === "treatments" && (
-          <div className="space-y-4">
-            {/* Note at top */}
-            <div className="bg-green-100 rounded-2xl p-4 flex gap-3 items-start border border-green-300">
-              <div className="flex-shrink-0 w-7 h-7 flex items-center justify-center mt-0.5">
-                <Lightbulb className="w-5 h-5 text-[#7C3AED] stroke-[1.8]" />
-              </div>
-              <div className="text-black text-[13px] leading-relaxed">
-                <strong className="text-black font-semibold">Note:</strong> There's no objective cure for schizophrenia, but there are treatments to help manage the symptoms! Keep in mind that these treatments use a biopsychosocial approach.
-              </div>
-            </div>
-
-            {/* Treatment categories */}
-            {TREATMENTS.map((treatment, i) => (
-              <div key={i} className="space-y-3">
-                <div className="text-[#7C3AED] text-xs font-semibold uppercase tracking-[2px]">
-                  {treatment.category}
+        {/* Studies Content */}
+        {activeTab === "studies" && (
+          <div className="space-y-6">
+            {STUDIES.map((s, i) => (
+              <div key={i} className="bg-white rounded-2xl p-6 border border-green-200">
+                <div className="flex items-start justify-between">
+                  <h3 className="text-black text-2xl font-extrabold">{s.name}</h3>
+                  <div className="text-[#7C3AED] text-lg font-bold ml-4">{s.year}</div>
                 </div>
-                {treatment.items.map((item, j) => (
-                  <div
-                    key={j}
-                    className="bg-white rounded-2xl p-5 border border-green-200"
-                  >
-                    <h3 className="text-black text-base font-bold mb-2">
-                      {item.name}
-                    </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {item.desc}
-                    </p>
+
+                <div className="mt-5">
+                  <div className="text-[#7C3AED] text-xs font-semibold uppercase tracking-[2px] mb-2">Aim</div>
+                  <p className="text-gray-700 text-sm leading-relaxed">{s.aim}</p>
+                </div>
+
+                {s.method && (
+                  <div className="mt-5">
+                    <div className="text-[#7C3AED] text-xs font-semibold uppercase tracking-[2px] mb-2">Method</div>
+                    <p className="text-gray-700 text-sm leading-relaxed">{s.method}</p>
                   </div>
-                ))}
+                )}
+
+                {s.procedure && (
+                  <div className="mt-5">
+                    <div className="text-[#7C3AED] text-xs font-semibold uppercase tracking-[2px] mb-2">Procedure</div>
+                    <p className="text-gray-700 text-sm leading-relaxed">{s.procedure}</p>
+                  </div>
+                )}
+
+                {s.results && (
+                  <div className="mt-5">
+                    <div className="text-[#7C3AED] text-xs font-semibold uppercase tracking-[2px] mb-2">Results</div>
+                    <p className="text-gray-700 text-sm leading-relaxed">{s.results}</p>
+                  </div>
+                )}
+
+                {s.conclusion && (
+                  <div className="mt-5">
+                    <div className="text-[#7C3AED] text-xs font-semibold uppercase tracking-[2px] mb-3">Conclusion</div>
+                    <div className="bg-green-100 rounded-xl p-4 border border-green-200">
+                      <p className="text-gray-800 text-sm leading-relaxed">{s.conclusion}</p>
+                    </div>
+                  </div>
+                )}
+
+                {s.application && (
+                  <div className="mt-5">
+                    <div className="text-[#7C3AED] text-xs font-semibold uppercase tracking-[2px] mb-2">Application</div>
+                    <p className="text-gray-700 text-sm leading-relaxed">{s.application}</p>
+                  </div>
+                )}
               </div>
             ))}
           </div>
