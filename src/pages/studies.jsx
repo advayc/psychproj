@@ -128,6 +128,7 @@ const TIPS = [
 ];
 
 export default function studies() {
+  const [mode, setMode] = useState("learn");
   const [activeTab, setActiveTab] = useState("dsm");
 
   return (
@@ -149,33 +150,31 @@ export default function studies() {
         </div>
       </div>
 
-      <div className={`mx-auto px-6 py-6 pb-32 ${activeTab === "case" ? "max-w-4xl" : "max-w-md"}`}>
-        {/* Tabs: DSM-5, Treatments, Case Study */}
+      <div className={`mx-auto px-6 py-6 pb-32 ${mode === "learn" ? (activeTab === "case" ? "max-w-4xl" : "max-w-md") : "max-w-4xl"}`}>
+        {/* Mode selector */}
+        <div className="max-w-md mx-auto mb-4">
+
+        </div>
+
+        {/* Sub-tabs (dynamic per mode) */}
         <div className="flex gap-0.5 bg-white p-1 rounded-2xl mb-6 border border-green-200 overflow-x-auto justify-center">
-          <button
-            onClick={() => setActiveTab("dsm")}
-            className={`flex-1 py-2.5 px-1.5 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
-              activeTab === "dsm" ? "bg-[#7C3AED] text-white" : "text-gray-600"
-            }`}
-          >
-            DSM-5
-          </button>
-          <button
-            onClick={() => setActiveTab("treatments")}
-            className={`flex-1 py-2.5 px-1.5 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
-              activeTab === "treatments" ? "bg-[#7C3AED] text-white" : "text-gray-600"
-            }`}
-          >
-            Treatments
-          </button>
-          <button
-            onClick={() => setActiveTab("case")}
-            className={`flex-1 py-2.5 px-1.5 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
-              activeTab === "case" ? "bg-[#7C3AED] text-white" : "text-gray-600"
-            }`}
-          >
-            Case Study
-          </button>
+          {(mode === "learn" ? [
+            { key: "dsm", label: "DSM-5" },
+            { key: "case", label: "Case Study" },
+            { key: "treatments", label: "Treatment" },
+          ] : [
+            { key: "fad", label: "FAD" },
+            { key: "studies", label: "Studies" },
+            { key: "tips", label: "Tips" },
+          ]).map((tab) => (
+            <button
+              key={tab.key}
+              onClick={() => setActiveTab(tab.key)}
+              className={`flex-1 py-2.5 px-1.5 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${activeTab === tab.key ? "bg-[#7C3AED] text-white" : "text-gray-600"}`}
+            >
+              {tab.label}
+            </button>
+          ))}
         </div>
 
         {/* DSM Content */}
@@ -215,7 +214,7 @@ export default function studies() {
           </div>
         )}
 
-        {/* Treatments Content */}
+        {/* RevisionHub / Treatments Content */}
         {activeTab === "treatments" && (
           <div className="space-y-4">
             {/* Note at top */}
@@ -275,6 +274,40 @@ export default function studies() {
                 ))}
               </div>
             </div>
+          </div>
+        )}
+
+        {/* Revision mode content: FAD, Studies, Tips */}
+        {mode === "revision" && activeTab === "fad" && (
+          <div className="space-y-4">
+            <div className="bg-white rounded-2xl p-6 border border-green-200">
+              <div className="text-gray-500 text-xs font-medium uppercase tracking-wider mb-2">FAD</div>
+              <p className="text-black text-sm leading-relaxed">FAD resources and key facts for revision. Add your flashcards or summaries here.</p>
+            </div>
+          </div>
+        )}
+
+        {mode === "revision" && activeTab === "studies" && (
+          <div className="space-y-4">
+            {STUDIES.map((s, i) => (
+              <div key={i} className="bg-white rounded-2xl p-5 border border-green-200">
+                <h3 className="text-black text-base font-bold mb-2">{s.name} — {s.year}</h3>
+                <p className="text-gray-700 text-sm"><strong>Aim:</strong> {s.aim}</p>
+                <p className="text-gray-700 text-sm mt-2"><strong>Method:</strong> {s.method}</p>
+                <p className="text-gray-700 text-sm mt-2"><strong>Results / Conclusion:</strong> {s.results || s.conclusion}</p>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {mode === "revision" && activeTab === "tips" && (
+          <div className="space-y-4">
+            {TIPS.map((t, i) => (
+              <div key={i} className="bg-white rounded-2xl p-5 border border-green-200">
+                <h3 className="text-black text-base font-bold mb-2">{t.title}</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">{t.desc}</p>
+              </div>
+            ))}
           </div>
         )}
 

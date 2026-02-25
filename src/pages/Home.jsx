@@ -46,10 +46,10 @@ export default function Home() {
                 <Book className="w-6 h-6 sm:w-8 sm:h-8 text-[#7C3AED]" />
               </div>
               <div className="space-y-2 sm:space-y-3">
-                <h2 className="text-black text-2xl sm:text-3xl md:text-4xl font-bold">Clinical Case Walkthroughs</h2>
-                <p className="text-gray-600 text-sm sm:text-base max-w-md">
-                  Interactive DSM-5 diagnostic walkthroughs and case files
-                </p>
+                <h2 className="text-black text-2xl sm:text-3xl md:text-4xl font-bold">Learn</h2>
+                  <p className="text-gray-600 text-sm sm:text-base max-w-md">
+                   DSM-5, Case Studies, and Treatment learning modules
+                 </p>
               </div>
             </div>
             <div className="w-10 h-10 sm:w-14 sm:h-14 bg-green-100 rounded-full flex items-center justify-center group-hover:bg-green-200 transition-colors flex-shrink-0">
@@ -70,9 +70,9 @@ export default function Home() {
               </div>
               <div className="space-y-2 sm:space-y-3">
                 <h2 className="text-black text-2xl sm:text-3xl md:text-4xl font-bold">Exam Revision Hub</h2>
-                <p className="text-gray-600 text-sm sm:text-base max-w-md">
-                  FADs, treatments, and exam strategies for concise revision
-                </p>
+                  <p className="text-gray-600 text-sm sm:text-base max-w-md">
+                   FADs, Studies, and Tips for concise exam revision
+                 </p>
               </div>
             </div>
             <div className="w-10 h-10 sm:w-14 sm:h-14 bg-green-100 rounded-full flex items-center justify-center group-hover:bg-green-200 transition-colors flex-shrink-0">

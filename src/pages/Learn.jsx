@@ -142,7 +142,7 @@ export default function Learn() {
               <div className="text-gray-500 text-xs font-medium uppercase tracking-wider">
                 Resources
               </div>
-              <h1 className="text-black text-xl font-bold">Learn</h1>
+              <h1 className="text-black text-xl font-bold">Exam Revision Hub</h1>
             </div>
           </div>
         </div>
