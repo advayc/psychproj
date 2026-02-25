@@ -1,11 +1,10 @@
-import React from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from 'sonner';
 import Home from './pages/Home';
 import Activity from './pages/Activity';
 import Admin from './pages/Admin';
-import Learn from './pages/learn';
+import Learn from './pages/Learn';
 import Studies from './pages/studies';
 
 const queryClient = new QueryClient({
