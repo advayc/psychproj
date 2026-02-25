@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Users, Book, ArrowRight } from 'lucide-react';
+import { Users, Book, ArrowRight, Lightbulb } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -37,7 +37,7 @@ export default function Home() {
 
         {/* Learn Card */}
         <Link
-          to="/learn"
+          to="/studies"
           className="group block bg-white border border-green-200 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:bg-green-50 transition-all duration-300"
         >
           <div className="flex items-start justify-between">
@@ -46,9 +46,32 @@ export default function Home() {
                 <Book className="w-6 h-6 sm:w-8 sm:h-8 text-[#7C3AED]" />
               </div>
               <div className="space-y-2 sm:space-y-3">
-                <h2 className="text-black text-2xl sm:text-3xl md:text-4xl font-bold">Learn</h2>
+                <h2 className="text-black text-2xl sm:text-3xl md:text-4xl font-bold">Clinical Case Walkthroughs</h2>
                 <p className="text-gray-600 text-sm sm:text-base max-w-md">
-                  Explore DSM-5 diagnostic criteria and foundational research studies
+                  Interactive DSM-5 diagnostic walkthroughs and case files
+                </p>
+              </div>
+            </div>
+            <div className="w-10 h-10 sm:w-14 sm:h-14 bg-green-100 rounded-full flex items-center justify-center group-hover:bg-green-200 transition-colors flex-shrink-0">
+              <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 text-gray-500" />
+            </div>
+          </div>
+        </Link>
+
+        {/* Learn Card */}
+        <Link
+          to="/learn"
+          className="group block bg-white border border-green-200 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:bg-green-50 transition-all duration-300"
+        >
+          <div className="flex items-start justify-between">
+            <div className="space-y-4 sm:space-y-6">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[#F59E0B]/20 rounded-xl sm:rounded-2xl flex items-center justify-center">
+                <Lightbulb className="w-6 h-6 sm:w-8 sm:h-8 text-[#F59E0B]" />
+              </div>
+              <div className="space-y-2 sm:space-y-3">
+                <h2 className="text-black text-2xl sm:text-3xl md:text-4xl font-bold">Exam Revision Hub</h2>
+                <p className="text-gray-600 text-sm sm:text-base max-w-md">
+                  FADs, treatments, and exam strategies for concise revision
                 </p>
               </div>
             </div>

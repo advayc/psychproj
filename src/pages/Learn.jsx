@@ -127,7 +127,7 @@ const TIPS = [
 ];
 
 export default function Learn() {
-  const [activeTab, setActiveTab] = useState("dsm");
+  const [activeTab, setActiveTab] = useState("fad");
 
   return (
     <div className="min-h-screen bg-green-50">
@@ -149,16 +149,8 @@ export default function Learn() {
       </div>
 
       <div className="max-w-md mx-auto px-6 py-6 pb-32">
-        {/* Tabs */}
+        {/* Tabs: FAD, Treatments, Tips */}
         <div className="flex gap-0.5 bg-white p-1 rounded-2xl mb-6 border border-green-200 overflow-x-auto justify-center">
-          <button
-            onClick={() => setActiveTab("dsm")}
-            className={`flex-1 py-2.5 px-1.5 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
-              activeTab === "dsm" ? "bg-[#7C3AED] text-white" : "text-gray-600"
-            }`}
-          >
-            DSM-5
-          </button>
           <button
             onClick={() => setActiveTab("fad")}
             className={`flex-1 py-2.5 px-1.5 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
@@ -176,16 +168,6 @@ export default function Learn() {
             Treatments
           </button>
           <button
-            onClick={() => setActiveTab("studies")}
-            className={`flex-1 py-2.5 px-1.5 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
-              activeTab === "studies"
-                ? "bg-[#7C3AED] text-white"
-                : "text-gray-600"
-            }`}
-          >
-            Studies
-          </button>
-          <button
             onClick={() => setActiveTab("tips")}
             className={`flex-1 py-2.5 px-1.5 text-xs font-semibold rounded-xl transition-all whitespace-nowrap ${
               activeTab === "tips" ? "bg-[#7C3AED] text-white" : "text-gray-600"
@@ -195,42 +177,7 @@ export default function Learn() {
           </button>
         </div>
 
-        {/* DSM Content */}
-        {activeTab === "dsm" && (
-          <div className="space-y-4">
-            <div className="bg-white rounded-2xl p-6 border border-green-200">
-              <div className="text-gray-500 text-xs font-medium uppercase tracking-wider mb-2">
-                Definition
-              </div>
-              <p className="text-black text-sm leading-relaxed">
-                Schizophrenia is a chronic, severe brain disorder affecting how
-                a person thinks, feels, and acts, often causing them to lose
-                touch with reality.
-              </p>
-            </div>
-
-            {DSM_CRITERIA.map((item, i) => (
-              <div
-                key={i}
-                className="bg-white rounded-2xl p-5 border border-green-200"
-              >
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-[#7C3AED]/10 rounded-xl flex items-center justify-center shrink-0">
-                    <CheckCircle2 className="w-5 h-5 text-[#7C3AED]" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-black text-base font-bold mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {item.desc}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
+        {/* DSM content moved to /studies (main page). Learn now focuses on FAD, Treatments, Tips */}
 
         {/* Treatments Content */}
         {activeTab === "treatments" && (
@@ -269,84 +216,7 @@ export default function Learn() {
           </div>
         )}
 
-        {/* Studies Content */}
-        {activeTab === "studies" && (
-          <div className="space-y-6">
-            {STUDIES.map((study, i) => (
-              <div
-                key={i}
-                className="bg-white rounded-2xl p-6 border border-green-200 space-y-5"
-              >
-                <div className="flex items-baseline justify-between">
-                  <h3 className="text-black text-2xl font-bold">
-                    {study.name}
-                  </h3>
-                  <span className="text-[#7C3AED] text-lg font-bold">
-                    {study.year}
-                  </span>
-                </div>
-
-                <div className="space-y-4">
-                  <div>
-                    <div className="text-[#7C3AED] text-xs font-medium uppercase tracking-wider mb-2">
-                      Aim
-                    </div>
-                    <p className="text-black text-sm leading-relaxed">
-                      {study.aim}
-                    </p>
-                  </div>
-
-                  <div>
-                    <div className="text-[#7C3AED] text-xs font-medium uppercase tracking-wider mb-2">
-                      Method
-                    </div>
-                    <p className="text-black text-sm leading-relaxed">
-                      {study.method}
-                    </p>
-                  </div>
-
-                  {study.procedure && (
-                    <div>
-                      <div className="text-[#7C3AED] text-xs font-medium uppercase tracking-wider mb-2">
-                        Procedure
-                      </div>
-                      <p className="text-black text-sm leading-relaxed">
-                        {study.procedure}
-                      </p>
-                    </div>
-                  )}
-
-                  <div>
-                    <div className="text-[#7C3AED] text-xs font-medium uppercase tracking-wider mb-2">
-                      Results
-                    </div>
-                    <p className="text-black text-sm leading-relaxed">
-                      {study.results}
-                    </p>
-                  </div>
-
-                  <div className="bg-green-100 rounded-xl p-4 border border-green-200">
-                    <div className="text-[#7C3AED] text-xs font-medium uppercase tracking-wider mb-2">
-                      Conclusion
-                    </div>
-                    <p className="text-black text-sm font-medium leading-relaxed">
-                      {study.conclusion}
-                    </p>
-                  </div>
-
-                  <div>
-                    <div className="text-[#7C3AED] text-xs font-medium uppercase tracking-wider mb-2">
-                      Application
-                    </div>
-                    <p className="text-black text-sm leading-relaxed">
-                      {study.application}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
+        {/* Studies content removed from this page (now on /studies) */}
 
         {/* FAD Content */}
         {activeTab === "fad" && (
