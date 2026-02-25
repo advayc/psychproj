@@ -29,3 +29,22 @@ body {
   min-height: 100dvh;
   background-color: #F0FDF4;
 }
+
+/* Fade-in on scroll helpers (used by AnimatedOnScroll component) */
+.is-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 600ms cubic-bezier(.2,.9,.3,1), transform 600ms cubic-bezier(.2,.9,.3,1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .is-hidden, .is-visible {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

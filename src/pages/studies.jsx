@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronLeft, CheckCircle2, Lightbulb } from "lucide-react";
 import Footer from "../components/Footer";
+import AnimatedOnScroll from "../components/AnimatedOnScroll";
 
 const DSM_CRITERIA = [
   {
@@ -148,7 +149,7 @@ export default function studies() {
         </div>
       </div>
 
-      <div className="max-w-md mx-auto px-6 py-6 pb-32">
+      <div className={`mx-auto px-6 py-6 pb-32 ${activeTab === "case" ? "max-w-4xl" : "max-w-md"}`}>
         {/* Tabs: DSM-5, Treatments, Case Study */}
         <div className="flex gap-0.5 bg-white p-1 rounded-2xl mb-6 border border-green-200 overflow-x-auto justify-center">
           <button
@@ -251,51 +252,27 @@ export default function studies() {
           </div>
         )}
 
-        {/* Case Study Content: interactive case file for GLORIA LEE */}
+        {/* Case Study Content: display only large images from Case File */}
         {activeTab === "case" && (
           <div className="space-y-6">
-            <div className="bg-white rounded-2xl p-6 border border-green-200 space-y-4">
-              <h2 className="text-black text-2xl font-bold">GLORIA LEE — Case File</h2>
-              <div className="text-gray-500 text-xs uppercase tracking-wider">Patient Details</div>
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <div className="text-gray-700 text-sm"><strong>Patient Name:</strong> GLORIA SUYEON LEE</div>
-                  <div className="text-gray-700 text-sm"><strong>Age:</strong> 17</div>
-                  <div className="text-gray-700 text-sm"><strong>Date of Birth:</strong> MAY 18, 2008</div>
-                  <div className="text-gray-700 text-sm"><strong>Sex:</strong> FEMALE</div>
-                </div>
-                <div>
-                  <div className="text-gray-700 text-sm"><strong>Referred For:</strong> Psychiatric Evaluation</div>
-                  <div className="text-gray-700 text-sm"><strong>Presenting Symptoms:</strong> hallucinations, disorganized thinking, social withdrawal</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-2xl p-6 border border-green-200 space-y-4">
-              <div className="text-gray-500 text-xs uppercase tracking-wider">Patient History</div>
-              <div className="space-y-2 text-gray-700 text-sm">
-                <div><strong>Medical History:</strong> No prior psychiatric diagnosis; reports sleep disturbance for 8+ months; difficulty concentrating.</div>
-                <div><strong>Family History:</strong> Mother: JENNIFER LEE; Father: MICHAEL LEE; maternal uncle diagnosed with schizophrenia; father diagnosed with major depressive disorder.</div>
-                <div><strong>Trauma & Developmental History:</strong> History of childhood physical abuse; reports of emotional neglect; difficulty regulating emotions in adolescence; high levels of anxiety during adolescence.</div>
-                <div><strong>Social History:</strong> Lives alone; limited peer support; recently lost employment.</div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-2xl p-6 border border-green-200 space-y-4">
-              <div className="text-gray-500 text-xs uppercase tracking-wider">Investigations</div>
-              <div className="space-y-2 text-gray-700 text-sm">
-                <div><strong>Structural MRI Findings:</strong> Mild ventricular enlargement; reduced grey matter volume in frontal regions; reduced activity in prefrontal cortex; no evidence of lesions or tumors.</div>
-                <div><strong>Neurochemical Screening:</strong> Elevated dopamine activity in mesolimbic pathway; reduced dopamine activity in prefrontal cortex; dopamine levels are imbalanced; no abnormalities detected in serotonin levels.</div>
-                <div><strong>Clinical Note:</strong> Prefrontal cortex implicated in decision-making, planning, and working memory. Enlarged ventricles observed.</div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <img src="/Case FIle/1.png" alt="case page 1" className="w-full rounded-lg border" />
-                <img src="/Case FIle/2.png" alt="case page 2" className="w-full rounded-lg border" />
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <img src="/Case FIle/3.png" alt="case page 3" className="w-full rounded-lg border" />
-                <img src="/Case FIle/4.png" alt="case page 4" className="w-full rounded-lg border" />
+            <div className="w-full">
+              <div className="space-y-6">
+                {[
+                  "/Case FIle/1.png",
+                  "/Case FIle/2.png",
+                  "/Case FIle/3.png",
+                  "/Case FIle/4.png",
+                ].map((src, idx) => (
+                  <AnimatedOnScroll key={src} className="w-full">
+                    <div className="w-full overflow-hidden rounded-2xl border bg-white shadow-sm">
+                      <img
+                        src={src}
+                        alt={`case image ${idx + 1}`}
+                        className="w-full h-[64vh] md:h-[72vh] lg:h-[78vh] object-contain"
+                      />
+                    </div>
+                  </AnimatedOnScroll>
+                ))}
               </div>
             </div>
           </div>
