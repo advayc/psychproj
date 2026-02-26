@@ -37,7 +37,7 @@ export default function Home() {
 
         {/* Learn Card */}
         <Link
-          to="/studies"
+          to="/learn"
           className="group block bg-white border border-green-200 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:bg-green-50 transition-all duration-300"
         >
           <div className="flex items-start justify-between">
@@ -60,7 +60,7 @@ export default function Home() {
 
         {/* Learn Card */}
         <Link
-          to="/learn"
+          to="/revision"
           className="group block bg-white border border-green-200 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:bg-green-50 transition-all duration-300"
         >
           <div className="flex items-start justify-between">

@@ -4,8 +4,8 @@ import { Toaster } from 'sonner';
 import Home from './pages/Home';
 import Activity from './pages/Activity';
 import Admin from './pages/Admin';
-import Learn from './pages/Learn';
-import Studies from './pages/studies';
+import Revision from './pages/Revision';
+import Learn from './pages/learn';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -26,7 +26,7 @@ function App() {
           <Route path="/activity" element={<Activity />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/learn" element={<Learn />} />
-          <Route path="/studies" element={<Studies />} />
+          <Route path="/revision" element={<Revision />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
