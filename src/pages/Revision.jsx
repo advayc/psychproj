@@ -224,7 +224,7 @@ export default function Revision() {
                   So What?
                 </div>
                 <div className="text-black text-[13.5px] leading-relaxed">
-                  ...existing code...
+                 Diagnosis becomes as much a reflection of the clinician's cognitive tendencies as the patient's actual condition. It undermines reliability, raises ethical concerns about whether patient disagreement is genuinely heard, and connects both studies. Rosenhan demonstrates it in practice, while Copeland shows it operating at a cultural and institutional scale.
                 </div>
               </div>
             </div>
