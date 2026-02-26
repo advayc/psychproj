@@ -77,7 +77,7 @@ const TREATMENTS = [
   },
 ];
 
-const TIPS = [
+  const TIPS = [
   {
     title: "Always Look Back on the Command Term",
     desc: "Remember to look back on the command term and the question the paper is asking. Ensure that your analysis is answering the SIGNIFICANCE of the FADs—Why is it important? What is their impact? How do they impact diagnosis? So what?",
@@ -94,7 +94,40 @@ const TIPS = [
     title: "Avoid 'Proven' Language",
     desc: "Nothing is ever proven in psychology, avoid using this terminology especially after synthesis/evaluation of the studies. We recommend alternative terms 'This suggests' or 'This supports…'",
   },
-];
+  ];
+
+  const STUDIES = [
+    {
+      name: "Rosenhan et al.",
+      year: "1973",
+      aim: "Test if psychiatrists can distinguish between sane and insane individuals and examine validity of psychiatric diagnosis.",
+      method:
+        "Field experiment with covert participant observation. 8 mentally healthy 'pseudopatients' sought admission to 12 US hospitals.",
+      procedure:
+        "Pseudopatients claimed to hear voices saying 'empty,' 'hollow,' 'thud.' After admission, behaved completely normally.",
+      results:
+        "7 diagnosed with schizophrenia, 1 with manic depression. Stayed 7–52 days (avg. 19). All discharged with 'schizophrenia in remission.' Normal behaviors like note-taking were interpreted as symptoms.",
+      conclusion:
+        "Clinicians could not reliably distinguish sane from insane. Diagnostic labels strongly influenced staff interpretation of behavior. Psychiatric diagnosis at the time lacked validity.",
+      application:
+        "Led to improved diagnostic criteria (DSM-III), structured interviews, and increased awareness of labeling and stigma.",
+    },
+    {
+      name: "Copeland et al.",
+      year: "1971",
+      aim: "Investigate if psychiatrists from US vs UK diagnose the same patient differently for schizophrenia.",
+      method:
+        "Quasi-experimental design using standardized clinical case descriptions shown to psychiatrists in both countries.",
+      procedure:
+        "The researchers created descriptions of psychiatric patients through videotaped interviews. These tapes showed patients presenting clinical symptoms relevant to psychiatric diagnoses. 134 trained psychiatrists from the USA and 194 from the UK were shown the same videos, and were asked to give a diagnosis.",
+      results:
+        "69% of US psychiatrists diagnosed schizophrenia, while only 2% of UK psychiatrists did for identical patient presentations. British clinicians often diagnosed mood disorders instead.",
+      conclusion:
+        "Diagnosis is influenced by cultural and professional context. Psychiatric diagnosis is not purely objective—identical symptoms can be interpreted differently depending on training and country.",
+      application:
+        "Clinicians need awareness of cultural differences. Diagnostic tools (DSM/ICD) must be applied carefully considering patient's cultural background.",
+    },
+  ];
 
 export default function studies() {
   const [mode, setMode] = useState("learn");
@@ -264,6 +297,21 @@ export default function studies() {
                 <p className="text-gray-700 text-sm"><strong>Aim:</strong> {s.aim}</p>
                 <p className="text-gray-700 text-sm mt-2"><strong>Method:</strong> {s.method}</p>
                 <p className="text-gray-700 text-sm mt-2"><strong>Results / Conclusion:</strong> {s.results || s.conclusion}</p>
+                {s.application && (
+                  <div className="mt-3">
+                    <p className="text-gray-700 text-sm">{s.application}</p>
+                    {s.name === "Rosenhan et al." && (
+                      <div className="bg-purple-50 border border-[#7C3AED] rounded-xl p-3 mt-3 flex gap-3 items-start">
+                        <div className="flex-shrink-0 w-7 h-7 flex items-center justify-center mt-0.5">
+                          <Lightbulb className="w-5 h-5 text-[#7C3AED] stroke-[1.8]" />
+                        </div>
+                        <div className="text-black text-[13px] leading-relaxed">
+                          <strong className="text-black font-semibold">Note:</strong> This study and/or the followup can be used in answering an ERQ question regarding confirmation bias or the paper 2 question we have selected! While discussing both demonstrates fundamental understanding of the study, your ERQ should still remain focused on the prescribed question. See our <Link to="/learn#tips" className="text-[#7C3AED] underline underline-offset-2 hover:text-purple-800 transition-colors">tips</Link> for more information!
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
             ))}
           </div>

@@ -24,8 +24,9 @@ function shuffle(array) {
   return array;
 }
 
-function randomTopic() {
-  return TOPICS[Math.floor(Math.random() * TOPICS.length)];
+function topicForRound(roundNumber) {
+  const index = (roundNumber - 1) % TOPICS.length;
+  return TOPICS[index];
 }
 
 export default async function handler(req, res) {
@@ -84,7 +85,7 @@ export default async function handler(req, res) {
       }
 
       const shuffled = shuffle([...participants]);
-      const newTopic = randomTopic();
+      const newTopic = topicForRound(nextRound);
       const pairingValues = [];
 
       // Build all pairing values

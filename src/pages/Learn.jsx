@@ -219,6 +219,17 @@ export default function Learn() {
                   <div className="mt-5">
                     <div className="text-[#7C3AED] text-xs font-semibold uppercase tracking-[2px] mb-2">Application</div>
                     <p className="text-gray-700 text-sm leading-relaxed">{s.application}</p>
+                    {/* Tip bubble for Rosenhan study */}
+                    {s.name === "Rosenhan et al." && (
+                      <div className="bg-purple-50 border border-[#7C3AED] rounded-xl p-4 mt-3 flex gap-3 items-start">
+                        <div className="flex-shrink-0 w-7 h-7 flex items-center justify-center mt-0.5">
+                          <Lightbulb className="w-5 h-5 text-[#7C3AED] stroke-[1.8]" />
+                        </div>
+                        <div className="text-black text-[13px] leading-relaxed">
+                          <strong className="text-black font-semibold">Note:</strong> This study and/or the followup can be used in answering an ERQ question regarding confirmation bias or the paper 2 question we have selected! While discussing both demonstrates fundamental understanding of the study, your ERQ should still remain focused on the prescribed question. See our <a href="/learn#tips" className="text-[#7C3AED] underline underline-offset-2 hover:text-purple-800 transition-colors">tips</a> for more information!
+                        </div>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
@@ -266,63 +277,13 @@ export default function Learn() {
               </div>
             </div>
 
-            {/* FAD Card 1: Cultural Bias */}
+            {/* FAD Card 1: Confirmation Bias */}
             <div className="bg-white rounded-2xl p-6 mb-4 border border-green-200">
-              <div className="flex items-center justify-between mb-5">
-                <h3 className="text-black text-xl font-bold leading-tight">
-                  Cultural Bias
-                </h3>
-                <div className="text-[#7C3AED] text-[22px] font-bold">01</div>
-              </div>
-
-              <div className="mb-4">
-                <div className="text-[#7C3AED] text-[10px] font-semibold uppercase tracking-[2px] mb-2">
-                  Why It's Important
-                </div>
-                <div className="text-gray-700 text-sm leading-relaxed">
-                  Diagnosis is a human judgment made within a cultural framework. The DSM was developed through Western psychiatry, meaning clinicians trained within that system apply a culturally narrow lens to patients whose backgrounds may differ significantly.
-                </div>
-              </div>
-
-              <div className="h-px bg-green-200 my-4"></div>
-
-              <div className="mb-4">
-                <div className="text-[#7C3AED] text-[10px] font-semibold uppercase tracking-[2px] mb-2">
-                  Impact
-                </div>
-                <div className="text-gray-700 text-sm leading-relaxed">
-                  Produces systematic diagnostic errors that disproportionately affect ethnic minorities and non-Western individuals. Behaviours that are culturally normative, such as hearing ancestral voices, risk being pathologised by a clinician lacking cultural competence.
-                </div>
-              </div>
-
-              <div className="h-px bg-green-200 my-4"></div>
-
-              <div className="mb-4">
-                <div className="text-[#7C3AED] text-[10px] font-semibold uppercase tracking-[2px] mb-2">
-                  How It Affects Diagnosis
-                </div>
-                <div className="text-gray-700 text-sm leading-relaxed">
-                  At the clinician level, implicit bias shapes which symptoms are weighted. At the instrument level, the DSM itself embeds cultural assumptions. Copeland et al. (1971) demonstrated this directly, as the same patient vignette produced a schizophrenia diagnosis from 69% of American psychiatrists but only 2% of British psychiatrists.
-                </div>
-              </div>
-
-              <div className="bg-green-100 rounded-xl p-4 mt-4 border border-green-200">
-                <div className="text-[#7C3AED] text-[10px] font-semibold uppercase tracking-[2px] mb-2">
-                  So What?
-                </div>
-                <div className="text-black text-[13.5px] leading-relaxed">
-                  Misdiagnosis rooted in cultural misunderstanding leads to wrong treatment, unnecessary hospitalisation, and eroded trust in psychiatric services among marginalised communities. It fundamentally challenges the reliability and validity of diagnosis as a universal process.
-                </div>
-              </div>
-            </div>
-
-            {/* FAD Card 2: Confirmation Bias */}
-            <div className="bg-white rounded-2xl p-6 border border-green-200">
               <div className="flex items-center justify-between mb-5">
                 <h3 className="text-black text-xl font-bold leading-tight">
                   Confirmation Bias
                 </h3>
-                <div className="text-[#7C3AED] text-[22px] font-bold">02</div>
+                <div className="text-[#7C3AED] text-[22px] font-bold">01</div>
               </div>
 
               {/* Nested Tip */}
@@ -371,16 +332,66 @@ export default function Learn() {
                   So What?
                 </div>
                 <div className="text-black text-[13.5px] leading-relaxed">
-                  Diagnosis becomes as much a reflection of the clinician's cognitive tendencies as the patient's actual condition. It undermines reliability, raises ethical concerns about whether patient disagreement is genuinely heard, and connects both studies. Rosenhan demonstrates it in practice, while Copeland shows it operating at a cultural and institutional scale.
+                  ...existing code...
                 </div>
               </div>
             </div>
+
+            {/* FAD Card 2: Cultural Bias */}
+            <div className="bg-white rounded-2xl p-6 border border-green-200">
+              <div className="flex items-center justify-between mb-5">
+                <h3 className="text-black text-xl font-bold leading-tight">
+                  Cultural Bias
+                </h3>
+                <div className="text-[#7C3AED] text-[22px] font-bold">02</div>
+              </div>
+
+              <div className="mb-4">
+                <div className="text-[#7C3AED] text-[10px] font-semibold uppercase tracking-[2px] mb-2">
+                  Why It's Important
+                </div>
+                <div className="text-gray-700 text-sm leading-relaxed">
+                  Diagnosis is a human judgment made within a cultural framework. The DSM was developed through Western psychiatry, meaning clinicians trained within that system apply a culturally narrow lens to patients whose backgrounds may differ significantly.
+                </div>
+              </div>
+
+              <div className="h-px bg-green-200 my-4"></div>
+
+              <div className="mb-4">
+                <div className="text-[#7C3AED] text-[10px] font-semibold uppercase tracking-[2px] mb-2">
+                  Impact
+                </div>
+                <div className="text-gray-700 text-sm leading-relaxed">
+                  Produces systematic diagnostic errors that disproportionately affect ethnic minorities and non-Western individuals. Behaviours that are culturally normative, such as hearing ancestral voices, risk being pathologised by a clinician lacking cultural competence.
+                </div>
+              </div>
+
+              <div className="h-px bg-green-200 my-4"></div>
+
+              <div className="mb-4">
+                <div className="text-[#7C3AED] text-[10px] font-semibold uppercase tracking-[2px] mb-2">
+                  How It Affects Diagnosis
+                </div>
+                <div className="text-gray-700 text-sm leading-relaxed">
+                  At the clinician level, implicit bias shapes which symptoms are weighted. At the instrument level, the DSM itself embeds cultural assumptions. Copeland et al. (1971) demonstrated this directly, as the same patient vignette produced a schizophrenia diagnosis from 69% of American psychiatrists but only 2% of British psychiatrists.
+                </div>
+              </div>
+
+              <div className="bg-green-100 rounded-xl p-4 mt-4 border border-green-200">
+                <div className="text-[#7C3AED] text-[10px] font-semibold uppercase tracking-[2px] mb-2">
+                  So What?
+                </div>
+                <div className="text-black text-[13.5px] leading-relaxed">
+                  Misdiagnosis rooted in cultural misunderstanding leads to wrong treatment, unnecessary hospitalisation, and eroded trust in psychiatric services among marginalised communities. It fundamentally challenges the reliability and validity of diagnosis as a universal process.
+                </div>
+              </div>
+              </div>
           </div>
         )}
 
         {/* Tips Content */}
         {activeTab === "tips" && (
-          <div className="space-y-6">
+          <div className="space-y-6" id="tips">
             {TIPS.map((tip, i) => (
               <div
                 key={i}
