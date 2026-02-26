@@ -112,11 +112,11 @@ export const TIPS = [
   },
   {
     title: "Consider Historical Context",
-    desc: "When evaluating studies, always consider the historical context they were conducted in. Different time periods may have used varying DSM models, thus affecting the generalizability to today's time period.",
+    desc: "When evaluating studies, always consider the historical context they were conducted in. Different time periods may have used varying DSM models, thus affecting the generalizability to today's time period. Are the FAD's still present in today's manual?",
   },
   {
     title: "Emphasize the Biopsychosocial Approach",
-    desc: "ALWAYS ALWAYS ALWAYS emphasize how treatment usually requires a biopsychosocial approach. These 3 systems must interact with each other.",
+    desc: "Demonstrating psychological understanding isn't simply limited to just the abnormal approach. To reach that 6-7 band, we suggest also discussing how schema's and heuristics play a role in developing these FAD's.",
   },
   {
     title: "Avoid 'Proven' Language",
