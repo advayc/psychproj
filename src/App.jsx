@@ -5,7 +5,7 @@ import Home from './pages/Home';
 import Activity from './pages/Activity';
 import Admin from './pages/Admin';
 import Revision from './pages/Revision';
-import Learn from './pages/learn';
+import Learn from './pages/Learn';
 
 const queryClient = new QueryClient({
   defaultOptions: {
