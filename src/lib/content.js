@@ -115,7 +115,7 @@ export const TIPS = [
     desc: "When evaluating studies, always consider the historical context they were conducted in. Different time periods may have used varying DSM models, thus affecting the generalizability to today's time period. Are the FAD's still present in today's manual?",
   },
   {
-    title: "Emphasize the Biopsychosocial Approach",
+    title: "Demonstrating Exceptional Understanding",
     desc: "Demonstrating psychological understanding isn't simply limited to just the abnormal approach. To reach that 6-7 band, we suggest also discussing how schema's and heuristics play a role in developing these FAD's.",
   },
   {
